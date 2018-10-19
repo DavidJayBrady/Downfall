@@ -27,5 +27,6 @@ public class ControllerMovement : MonoBehaviour {
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (this.GetComponent<Rigidbody2D>().velocity.magnitude > 0)
             this.GetComponent<Rigidbody2D>().velocity *= effectiveSpeed / this.GetComponent<Rigidbody2D>().velocity.magnitude;
+        this.GetComponent<Rigidbody2D>().velocity *= new Vector2(1.0f, 0.5f);
     }
 }
