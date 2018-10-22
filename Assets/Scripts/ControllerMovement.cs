@@ -71,6 +71,7 @@ public class ControllerMovement : MonoBehaviour {
         Vector3Int selectionVector = worldGrid.WorldToCell(this.transform.position);
         selectionVector.x += Mathf.RoundToInt(lookVector.x);
         selectionVector.y += Mathf.RoundToInt(lookVector.y);
+        Debug.Log(selectionVector);
         return selectionVector;
     }
 
