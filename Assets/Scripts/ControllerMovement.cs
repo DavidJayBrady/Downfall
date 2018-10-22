@@ -11,9 +11,10 @@ public class ControllerMovement : MonoBehaviour {
     public GameObject selectionHighlighter;
     public GameObject world;
     private GridLayout worldGrid;
+    private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         worldGrid = world.GetComponent<GridLayout>();
     }
 	
@@ -59,9 +60,15 @@ public class ControllerMovement : MonoBehaviour {
     // Returns the position of the tile in the direction the player is looking, or under the player if not looking
     Vector3Int GetPlayerSelection()
     {
+        // If the input is over half way to full, set the player direction
+        Vector2 tempLookVector = GetScaledVectorInput("Horizontal2", "Vertical2");
+        if (tempLookVector.magnitude > 0.5f)
+        {
+            tempLookVector = RotateVector2(tempLookVector, 45);
+            lookVector = tempLookVector;
+        }
+        // Calculate the Vector3Int for the grid
         Vector3Int selectionVector = worldGrid.WorldToCell(this.transform.position);
-        Vector2 lookVector = GetScaledVectorInput("Horizontal2", "Vertical2");
-        lookVector = RotateVector2(lookVector, 45);
         selectionVector.x += Mathf.RoundToInt(lookVector.x);
         selectionVector.y += Mathf.RoundToInt(lookVector.y);
         return selectionVector;
