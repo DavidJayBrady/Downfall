@@ -7,15 +7,16 @@ using UnityEngine.Tilemaps;
 public class ControllerMovement : MonoBehaviour {
 
     private float speed = 5.0f;
+
     public GameObject underfootHighlighter;
     public GameObject selectionHighlighter;
-    public GameObject world;
-    private GridLayout worldGrid;
+
     private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
+    private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
 
     // Use this for initialization
     void Start () {
-        worldGrid = world.GetComponent<GridLayout>();
+        _rigidbody2D = this.GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
@@ -25,50 +26,30 @@ public class ControllerMovement : MonoBehaviour {
         UpdatePlayerView();
     }
 
-    // Return a vector representation of the joystick input
-    // Interprets 
-    Vector3 GetScaledVectorInput(string axisNameX, string axisNameY, float scale = 1.0f)
-    {
-        Vector3 result = new Vector3(Input.GetAxisRaw(axisNameX), Input.GetAxisRaw(axisNameY), 0.0f);
-        float effectiveScale = Mathf.Min(1.0f, Mathf.Sqrt(Mathf.Pow(Input.GetAxisRaw(axisNameX) * 1.1f, 2) + Mathf.Pow(Input.GetAxisRaw(axisNameY) * 1.1f, 2))) * scale;
-        if (result.magnitude > 0)
-            result *= effectiveScale / result.magnitude;
-        return result;
-    }
-
-    // Rotate a Vector2 by an angle clockwise
-    Vector2 RotateVector2(Vector2 vector, float degrees)
-    {
-        float rad = -degrees * Mathf.Deg2Rad;
-        float s = Mathf.Sin(rad);
-        float c = Mathf.Cos(rad);
-        return new Vector2( vector.x * c - vector.y * s, vector.y * c + vector.x * s);
-    }
-
     // Update the player's velocity
     void UpdatePlayerVelocity()
     {
-        this.GetComponent<Rigidbody2D>().velocity = GetScaledVectorInput("Horizontal", "Vertical", speed) * new Vector2(1.0f, 0.5f);
+        _rigidbody2D.velocity = Common.GetScaledVectorInput("Horizontal", "Vertical", speed) * new Vector2(1.0f, 0.5f);
     }
 
     // Returns the position of the tile the player is on
     Vector3Int GetPlayerPosition()
     {
-        return worldGrid.WorldToCell(this.transform.position);
+        return WorldGrid.WorldToCell(this.transform.position);
     }
 
     // Returns the position of the tile in the direction the player is looking, or under the player if not looking
     Vector3Int GetPlayerSelection()
     {
         // If the input is over half way to full, set the player direction
-        Vector2 tempLookVector = GetScaledVectorInput("Horizontal2", "Vertical2");
+        Vector2 tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2");
         if (tempLookVector.magnitude > 0.5f)
         {
-            tempLookVector = RotateVector2(tempLookVector, 45);
+            tempLookVector = Common.RotateVector2(ref tempLookVector, 45);
             lookVector = tempLookVector;
         }
         // Calculate the Vector3Int for the grid
-        Vector3Int selectionVector = worldGrid.WorldToCell(this.transform.position);
+        Vector3Int selectionVector = GetPlayerPosition();
         selectionVector.x += Mathf.RoundToInt(lookVector.x);
         selectionVector.y += Mathf.RoundToInt(lookVector.y);
         return selectionVector;
@@ -78,7 +59,7 @@ public class ControllerMovement : MonoBehaviour {
     // Controlled by right joystick
     void UpdatePlayerView()
     {
-        underfootHighlighter.transform.position = worldGrid.CellToWorld(GetPlayerPosition());
-        selectionHighlighter.transform.position = worldGrid.CellToWorld(GetPlayerSelection());
+        underfootHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerPosition());
+        selectionHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerSelection());
     }
 }
