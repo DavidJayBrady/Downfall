@@ -48,7 +48,6 @@ public class ControllerMovement : MonoBehaviour {
             tempLookVector = Common.RotateVector2(ref tempLookVector, 45);
             lookVector = tempLookVector;
         }
-        print(lookVector);
         // Calculate the Vector3Int for the grid
         Vector3Int selectionVector = GetPlayerPosition();
         selectionVector.x += Mathf.RoundToInt(lookVector.x);
