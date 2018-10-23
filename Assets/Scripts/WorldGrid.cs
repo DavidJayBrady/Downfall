@@ -20,9 +20,10 @@ public class WorldGrid
         return grid.CellToWorld(cellPosition);
     }
 
-    // Converts a Vector3 to follow the coordinates of the grid
-    public static Vector3 GetGridVector(Vector3 rawVector)
+    // Converts a Vector2 to follow the coordinates of the grid
+    public static Vector2 GetGridVector(Vector2 rawVector)
     {
-
+        Common.RotateVector2(ref rawVector, 45);
+        return rawVector * new Vector2(1.0f, 0.5f);
     }
 }
