@@ -45,15 +45,16 @@ public class ControllerMovement : MonoBehaviour {
         Vector2 tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2");
         if (tempLookVector.magnitude > 0.5f)
         {
-            tempLookVector = Common.RotateVector2(ref tempLookVector, 45);
+            Common.VectorNormalize(ref tempLookVector);
             lookVector = tempLookVector;
         }
+
         // Calculate the Vector3Int for the grid
+        tempLookVector = lookVector;
         Vector3Int selectionVector = GetPlayerPosition();
-        selectionVector.x += Mathf.RoundToInt(lookVector.x);
-        selectionVector.y += Mathf.RoundToInt(lookVector.y);
-        Debug.Log(selectionVector);
-        return selectionVector;
+        Common.RotateVector2(ref tempLookVector, 45);
+        float lookAngle = Common.VectorAngleDegrees(tempLookVector);
+        return GetPlayerPosition() + Common.AngleToVector3Int(lookAngle);
     }
 
     // Update the direction the player is looking
