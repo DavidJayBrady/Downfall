@@ -47,10 +47,9 @@ public class Common
         return new Vector3Int(x, y, 0);
     }
 
-    public static float VectorAngleDegrees(ref Vector2 vector)
+    // Return the unit circle angle of a vector
+    public static float VectorAngleDegrees(Vector2 vector)
     {
-        vector = RotateVector2(ref vector, 45);
-        float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-        return angle;
+        return Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
     }
 }
