@@ -45,7 +45,8 @@ public class ControllerMovement : MonoBehaviour {
         Vector2 tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2");
         if (tempLookVector.magnitude > 0.5f)
         {
-            tempLookVector = Common.RotateVector2(ref tempLookVector, 45);
+            Common.RotateVector2(ref tempLookVector, 45);
+            Common.VectorNormalize(ref tempLookVector);
             lookVector = tempLookVector;
         }
         // Calculate the Vector3Int for the grid
