@@ -37,4 +37,11 @@ public class Common
         float c = Mathf.Cos(rad);
         return new Vector2(vector.x * c - vector.y * s, vector.y * c + vector.x * s);
     }
+
+    public static float VectorAngleDegrees(ref Vector2 vector)
+    {
+        vector = RotateVector2(ref vector, 45);
+        float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+        return angle;
+    }
 }
