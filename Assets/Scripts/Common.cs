@@ -46,4 +46,11 @@ public class Common
         int y = angle > 30 && angle < 150 ? 1 : (angle > 210 && angle < 330 ? -1 : 0);
         return new Vector3Int(x, y, 0);
     }
+
+    public static float VectorAngleDegrees(ref Vector2 vector)
+    {
+        vector = RotateVector2(ref vector, 45);
+        float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+        return angle;
+    }
 }

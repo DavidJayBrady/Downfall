@@ -1,10 +1,10 @@
-[Ll]ibrary/
+[Ll]ibrary
+Library/assetDatabase3
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
-
 # Visual Studio cache directory
 .vs/
 
@@ -34,3 +34,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Ignore for David
+Assets/Plugins/Editor/JetBrains/

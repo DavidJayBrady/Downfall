@@ -53,6 +53,7 @@ public class ControllerMovement : MonoBehaviour {
         Vector3Int selectionVector = GetPlayerPosition();
         selectionVector.x += Mathf.RoundToInt(lookVector.x);
         selectionVector.y += Mathf.RoundToInt(lookVector.y);
+        Debug.Log(selectionVector);
         return selectionVector;
     }
 
