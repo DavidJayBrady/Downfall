@@ -21,8 +21,8 @@ public class WorldGrid
     }
 
     // Converts a Vector3 to follow the coordinates of the grid
-    public static Vector3 GetGridVector(Vector3 rawVector)
+  /*  public static Vector3 GetGridVector(Vector3 rawVector)
     {
 
-    }
+    }*/
 }
