@@ -15,9 +15,10 @@ public class WorldGrid
     }
 
     // Return the grid position from the grid position
+    // TODO: Rewrite this function to ensure it works properly
     public static Vector3 CellToWorld(Vector3Int cellPosition)
     {
-        return grid.CellToWorld(cellPosition);
+        return grid.CellToWorld(cellPosition) + Vector3.Scale(new Vector3(0.0f, 0.5f, 0.0f), grid.cellSize);
     }
 
     // Converts a Vector2 to follow the coordinates of the grid

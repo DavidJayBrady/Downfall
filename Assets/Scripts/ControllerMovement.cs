@@ -53,7 +53,6 @@ public class ControllerMovement : MonoBehaviour {
         Vector3Int selectionVector = GetPlayerPosition();
         Common.RotateVector2(ref tempLookVector, 45);
         float lookAngle = Common.VectorAngleDegrees(tempLookVector);
-        print(tempLookVector + " " + lookAngle + " " + Common.AngleToVector3Int(lookAngle));
         return GetPlayerPosition() + Common.AngleToVector3Int(lookAngle);
     }
 

@@ -42,7 +42,6 @@ public class Common
     public static Vector3Int AngleToVector3Int(float angle)
     {
         angle = ((angle % 360) + 360) % 360;
-        Debug.Log(angle);
         int x = angle < 60 || angle > 300 ? 1 : (angle > 120 && angle < 240 ? -1 : 0);
         int y = angle > 30 && angle < 150 ? 1 : (angle > 210 && angle < 330 ? -1 : 0);
         return new Vector3Int(x, y, 0);
