@@ -16,8 +16,8 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 location = transform.position;
-        Debug.Log(Common.VectorAngleDegrees(location));
+     //   Vector2 location = transform.position;
+       // Debug.Log(Common.VectorAngleDegrees(ref location));
         //Vector2 location = (UnityEngine.Vector2Int)_controllerMovement.GetPlayerPosition();
         //attackVector = location + _controllerMovement.lookVector;
         //Debug.Log((Vector2)transform.position - attackVector);
