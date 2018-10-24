@@ -7,9 +7,11 @@ using UnityEngine.Tilemaps;
 public class ControllerMovement : MonoBehaviour {
 
     private float speed = 5.0f;
+    private float cameraSpeed = 15.0f;
 
     public GameObject underfootHighlighter;
     public GameObject selectionHighlighter;
+    public GameObject _camera; // Named with an underscore to avoid issues with Component.camera
 
     private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
@@ -23,13 +25,38 @@ public class ControllerMovement : MonoBehaviour {
 	void Update ()
     {
         UpdatePlayerVelocity();
-        UpdatePlayerView();
+        UpdatePlayerLook();
+        UpdateCamera();
     }
 
     // Update the player's velocity
     void UpdatePlayerVelocity()
     {
         _rigidbody2D.velocity = Common.GetScaledVectorInput("Horizontal", "Vertical", speed) * new Vector2(1.0f, 0.5f);
+    }
+    
+    // Returns true when the player is in camera mode
+    bool IsCameraMode()
+    {
+        return Input.GetAxisRaw("Right Trigger") > 0.1f;
+    }
+
+    // Update the camera's position and/or velocity
+    void UpdateCamera()
+    {
+        if (IsCameraMode())
+        {
+            // Detach the camera from the player
+            _camera.transform.parent = null;
+            Vector3 deltaPos = Common.GetScaledVectorInput("Horizontal2", "Vertical2", cameraSpeed * Time.deltaTime) * new Vector2(1.0f, 0.5f);
+            _camera.transform.position += deltaPos;
+        }
+        else
+        {
+            // reattach the camera to the player
+            _camera.transform.parent = this.transform;
+            _camera.transform.localPosition = new Vector3(0.0f, 0.0f, -19.0f); // z=-19 is default
+        }
     }
 
     // Returns the position of the tile the player is on
@@ -42,11 +69,15 @@ public class ControllerMovement : MonoBehaviour {
     Vector3Int GetPlayerSelection()
     {
         // If the input is over half way to full, set the player direction
-        Vector2 tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2");
-        if (tempLookVector.magnitude > 0.5f)
+        Vector2 tempLookVector;
+        if (!IsCameraMode())
         {
-            Common.VectorNormalize(ref tempLookVector);
-            lookVector = tempLookVector;
+            tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2"); ;
+            if (tempLookVector.magnitude > 0.5f)
+            {
+                Common.VectorNormalize(ref tempLookVector);
+                lookVector = tempLookVector;
+            }
         }
         // Calculate the Vector3Int for the grid
         tempLookVector = lookVector;
@@ -58,7 +89,7 @@ public class ControllerMovement : MonoBehaviour {
 
     // Update the direction the player is looking
     // Controlled by right joystick
-    void UpdatePlayerView()
+    void UpdatePlayerLook()
     {
         underfootHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerPosition());
         selectionHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerSelection());
