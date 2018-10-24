@@ -48,7 +48,6 @@ public class ControllerMovement : MonoBehaviour {
             Common.VectorNormalize(ref tempLookVector);
             lookVector = tempLookVector;
         }
-
         // Calculate the Vector3Int for the grid
         tempLookVector = lookVector;
         Vector3Int selectionVector = GetPlayerPosition();
