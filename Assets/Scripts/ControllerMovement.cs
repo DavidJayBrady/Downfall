@@ -13,6 +13,10 @@ public class ControllerMovement : MonoBehaviour {
     public GameObject selectionHighlighter;
     public GameObject _camera; // Named with an underscore to avoid issues with Component.camera
 
+    private GameObject selectedBuilding;
+    public GameObject wallPrefab;
+    public GameObject towerPrefab;
+
     private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
 
@@ -27,6 +31,8 @@ public class ControllerMovement : MonoBehaviour {
         UpdatePlayerVelocity();
         UpdatePlayerLook();
         UpdateCamera();
+        UpdateBuildingChoice();
+        CheckPlayerBuilding();
     }
 
     // Update the player's velocity
@@ -93,5 +99,37 @@ public class ControllerMovement : MonoBehaviour {
     {
         underfootHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerPosition());
         selectionHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerSelection());
+    }
+
+    // See if the player picked a different structure to build
+    void UpdateBuildingChoice()
+    {
+        print("x: " + Input.GetAxisRaw("D-Pad Horizontal"));
+        print("y: " + Input.GetAxisRaw("D-Pad Vertical"));
+        if (Input.GetAxisRaw("D-Pad Horizontal") < -0.5f) // Left
+        {
+            selectedBuilding = wallPrefab;
+        }
+        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up 
+        {
+            selectedBuilding = towerPrefab;
+        }
+        else if (Input.GetAxisRaw("D-Pad Horizontal") > 0.5f) // Right
+        {
+            selectedBuilding = wallPrefab; // extractorPrefab
+        }
+        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down 
+        {
+            selectedBuilding = wallPrefab; // researchPrefab
+        }
+    }
+
+    // Check if the player built a structure
+    void CheckPlayerBuilding()
+    {
+        if (Input.GetAxisRaw("A Button") > 0.5f)
+        {
+            Instantiate(selectedBuilding, WorldGrid.CellToWorld(GetPlayerSelection()), Quaternion.identity);
+        }
     }
 }
