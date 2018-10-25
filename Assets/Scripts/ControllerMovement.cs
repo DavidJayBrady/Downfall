@@ -23,6 +23,7 @@ public class ControllerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _rigidbody2D = this.GetComponent<Rigidbody2D>();
+        selectedBuilding = wallTile;
     }
 	
 	// Update is called once per frame
@@ -126,7 +127,6 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (Input.GetAxisRaw("A Button") > 0.5f)
         {
-            print("building");
             WorldGrid.worldTilemap.Build(GetPlayerSelection(), selectedBuilding);
         }
     }

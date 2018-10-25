@@ -6,7 +6,9 @@ using UnityEngine.Tilemaps;
 public class WorldTilemap : MonoBehaviour
 {
     private Tilemap terrainTilemap;
+    private GridInformation terrainProperties; // unused for now, but may be used for depleting resources in future
     private Tilemap buildingTilemap;
+    public GridInformation buildingProperties;
 
     public GameObject terrainTilemapGameObject;
     public GameObject buildingTilemapGameObject;
@@ -18,6 +20,8 @@ public class WorldTilemap : MonoBehaviour
         buildingTilemap = buildingTilemapGameObject.GetComponent<Tilemap>();
         terrainTilemap.CompressBounds();
         buildingTilemap.CompressBounds();
+        terrainProperties = terrainTilemapGameObject.GetComponent<GridInformation>();
+        buildingProperties = buildingTilemapGameObject.GetComponent<GridInformation>();
     }
 
     // Update is called once per frame
@@ -33,7 +37,7 @@ public class WorldTilemap : MonoBehaviour
                 if (tile is BuildingTile)
                 {
                     BuildingTile building = tile as BuildingTile;
-                    if (building.IsDestroyed())
+                    if (building.IsDestroyed(localPosition, this))
                     {
                         buildingTilemap.SetTile(localPosition, null);
                     }
@@ -84,10 +88,8 @@ public class WorldTilemap : MonoBehaviour
         if (CanBuildAt(location))
         {
             buildingTilemap.SetTile(location, building);
-            print("Built");
             return true;
         }
-        print("Denied");
         return false;
     }
 }

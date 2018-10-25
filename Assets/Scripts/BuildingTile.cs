@@ -4,11 +4,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BuildingTile : TileBase
+public class BuildingTile : Tile
 {
-    public Sprite sprite;
-
-    public int health;
+    public GridInformation buildingProperties; // This is very bad practice but works
     public virtual int maxHealth { get { return 1; } }
     public virtual EnumBuildingType buildingType { get { return EnumBuildingType.BuildingBase; } }
 
@@ -19,31 +17,26 @@ public class BuildingTile : TileBase
     {
 
     }
-
-    // Provide information about what the sprite is
-    public override void GetTileData(Vector3Int location, ITilemap tilemap, ref TileData tileData)
-    {
-        tileData.sprite = sprite;
-    }
     
     public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
     {
-        Debug.Log("starting new building");
-        health = maxHealth;
+        colliderType = Tile.ColliderType.Grid;
+        buildingProperties = WorldGrid.worldTilemap.buildingProperties;
+        buildingProperties.SetPositionProperty(position, "health", maxHealth);
         return true;
     }
 
-    public bool IsDestroyed()
+    public bool IsDestroyed(Vector3Int location, WorldTilemap worldTilemap)
     {
-        return health <= 0;
+        return buildingProperties.GetPositionProperty(location, "health", 0) <= 0;
     }
 
 #if UNITY_EDITOR
-    // The following is a helper that adds a menu item to create a RoadTile Asset
+    // The following is a helper that adds a menu item to create an Asset
     [MenuItem("Assets/Create/BuildingTile Asset")]
     public static void CreateBuildingTile()
     {
-        string path = EditorUtility.SaveFilePanelInProject("Save Building Tile", "New Building Tile", "Asset", "Save Building Tile", "Assets");
+        string path = EditorUtility.SaveFilePanelInProject("Save Building Tile", "BuildingTile", "Asset", "Save Building Tile", "Assets/Tiles");
         if (path == "")
             return;
         AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<BuildingTile>(), path);
