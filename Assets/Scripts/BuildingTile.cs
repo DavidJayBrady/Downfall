@@ -4,9 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BuildingTile : Tile
+public class BuildingTile : TileBase
 {
-    public GridInformation buildingProperties; // This is very bad practice but works
+    public Sprite sprite;
+
+    public int health;
     public virtual int maxHealth { get { return 1; } }
     public virtual EnumBuildingType buildingType { get { return EnumBuildingType.BuildingBase; } }
 
@@ -17,26 +19,31 @@ public class BuildingTile : Tile
     {
 
     }
+
+    // Provide information about what the sprite is
+    public override void GetTileData(Vector3Int location, ITilemap tilemap, ref TileData tileData)
+    {
+        tileData.sprite = sprite;
+    }
     
     public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
     {
-        colliderType = Tile.ColliderType.Grid;
-        buildingProperties = WorldGrid.worldTilemap.buildingProperties;
-        buildingProperties.SetPositionProperty(position, "health", maxHealth);
+        Debug.Log("starting new building");
+        health = maxHealth;
         return true;
     }
 
-    public bool IsDestroyed(Vector3Int location, WorldTilemap worldTilemap)
+    public bool IsDestroyed()
     {
-        return buildingProperties.GetPositionProperty(location, "health", 0) <= 0;
+        return health <= 0;
     }
 
 #if UNITY_EDITOR
-    // The following is a helper that adds a menu item to create an Asset
+    // The following is a helper that adds a menu item to create a RoadTile Asset
     [MenuItem("Assets/Create/BuildingTile Asset")]
     public static void CreateBuildingTile()
     {
-        string path = EditorUtility.SaveFilePanelInProject("Save Building Tile", "BuildingTile", "Asset", "Save Building Tile", "Assets/Tiles");
+        string path = EditorUtility.SaveFilePanelInProject("Save Building Tile", "New Building Tile", "Asset", "Save Building Tile", "Assets");
         if (path == "")
             return;
         AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<BuildingTile>(), path);
