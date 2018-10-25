@@ -7,6 +7,7 @@ public class WorldGrid
 {
     static public GameObject world = GameObject.FindWithTag("World");
     static private GridLayout grid = world.GetComponent<GridLayout>();
+    static public WorldTilemap worldTilemap = world.GetComponent<WorldTilemap>();
 
     // Return the world position from the world position
     public static Vector3Int WorldToCell(Vector3 worldPosition)

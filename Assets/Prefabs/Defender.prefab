@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881834717699453579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6535431574608441408}
@@ -51,10 +51,8 @@ MonoBehaviour:
   underfootHighlighter: {fileID: 1881834718510596392}
   selectionHighlighter: {fileID: 1881834719296767495}
   _camera: {fileID: 6535431574608441412}
-  wallPrefab: {fileID: 3223689815748276381, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
-    type: 3}
-  towerPrefab: {fileID: 206375678581318652, guid: dc4454e34ed20314f9a864ae25a35d1a,
-    type: 3}
+  wallTile: {fileID: 0}
+  towerTile: {fileID: 0}
 --- !u!50 &1881834717699453576
 Rigidbody2D:
   serializedVersion: 4

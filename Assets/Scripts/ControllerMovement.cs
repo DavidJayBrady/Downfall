@@ -13,9 +13,9 @@ public class ControllerMovement : MonoBehaviour {
     public GameObject selectionHighlighter;
     public GameObject _camera; // Named with an underscore to avoid issues with Component.camera
 
-    private GameObject selectedBuilding;
-    public GameObject wallPrefab;
-    public GameObject towerPrefab;
+    private BuildingTile selectedBuilding;
+    public BuildingTile wallTile;
+    public BuildingTile towerTile;
 
     private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
@@ -87,7 +87,6 @@ public class ControllerMovement : MonoBehaviour {
         }
         // Calculate the Vector3Int for the grid
         tempLookVector = lookVector;
-        Vector3Int selectionVector = GetPlayerPosition();
         Common.RotateVector2(ref tempLookVector, 45);
         float lookAngle = Common.VectorAngleDegrees(tempLookVector);
         return GetPlayerPosition() + Common.AngleToVector3Int(lookAngle);
@@ -104,23 +103,21 @@ public class ControllerMovement : MonoBehaviour {
     // See if the player picked a different structure to build
     void UpdateBuildingChoice()
     {
-        print("x: " + Input.GetAxisRaw("D-Pad Horizontal"));
-        print("y: " + Input.GetAxisRaw("D-Pad Vertical"));
         if (Input.GetAxisRaw("D-Pad Horizontal") < -0.5f) // Left
         {
-            selectedBuilding = wallPrefab;
+            selectedBuilding = wallTile;
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up 
+        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up
         {
-            selectedBuilding = towerPrefab;
+            selectedBuilding = towerTile;
         }
         else if (Input.GetAxisRaw("D-Pad Horizontal") > 0.5f) // Right
         {
-            selectedBuilding = wallPrefab; // extractorPrefab
+            selectedBuilding = wallTile; // extractorPrefab
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down 
+        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down
         {
-            selectedBuilding = wallPrefab; // researchPrefab
+            selectedBuilding = wallTile; // researchPrefab
         }
     }
 
@@ -129,7 +126,8 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (Input.GetAxisRaw("A Button") > 0.5f)
         {
-            Instantiate(selectedBuilding, WorldGrid.CellToWorld(GetPlayerSelection()), Quaternion.identity);
+            print("building");
+            WorldGrid.worldTilemap.Build(GetPlayerSelection(), selectedBuilding);
         }
     }
 }
