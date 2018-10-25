@@ -17,7 +17,7 @@ public class ControllerMovement : MonoBehaviour {
     public GameObject wallPrefab;
     public GameObject towerPrefab;
 
-    private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
+    public Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
 
     // Use this for initialization

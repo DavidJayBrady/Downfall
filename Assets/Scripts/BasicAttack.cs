@@ -10,19 +10,25 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //_controllerMovement = GetComponent<ControllerMovement>();
+        _controllerMovement = GetComponent<ControllerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-     //   Vector2 location = transform.position;
-       // Debug.Log(Common.VectorAngleDegrees(ref location));
-        //Vector2 location = (UnityEngine.Vector2Int)_controllerMovement.GetPlayerPosition();
-        //attackVector = location + _controllerMovement.lookVector;
-        //Debug.Log((Vector2)transform.position - attackVector);
-        //Vector2 tester = _controllerMovement.lookVector.normalized;
-        //Debug.Log(tester);
-        //Debug.Log(Mathf.Atan(tester.y/tester.x) );
+        // 1. find location to end at
+        //     a. scale lookVector to gridSpace
+        //     b.
+        Vector2 lastMoveAttempt = Common.GetScaledVectorInput("Horizontal", "Vertical");
+        if (lastMoveAttempt.magnitude > 0.5f)
+        {
+            Common.VectorNormalize(ref lastMoveAttempt);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),
+                out hit, lastMoveAttempt.magnitude))
+            {
+                Debug.Log("hit");
+            }
+        }
     }
 }
