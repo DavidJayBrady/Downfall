@@ -13,9 +13,9 @@ public class ControllerMovement : MonoBehaviour {
     public GameObject selectionHighlighter;
     public GameObject _camera; // Named with an underscore to avoid issues with Component.camera
 
-    private BuildingTile selectedBuilding;
-    public BuildingTile wallTile;
-    public BuildingTile towerTile;
+    private Building selectedBuilding;
+    public Building wallBuilding;
+    public Building towerBuilding;
 
     private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
@@ -23,6 +23,10 @@ public class ControllerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _rigidbody2D = this.GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
+        selectedBuilding = wallBuilding;
+=======
+>>>>>>> parent of a7bb149... Added building collisions and working health
     }
 	
 	// Update is called once per frame
@@ -68,7 +72,7 @@ public class ControllerMovement : MonoBehaviour {
     // Returns the position of the tile the player is on
     Vector3Int GetPlayerPosition()
     {
-        return WorldGrid.WorldToCell(this.transform.position);
+        return World.WorldToCell(this.transform.position);
     }
 
     // Returns the position of the tile in the direction the player is looking, or under the player if not looking
@@ -96,8 +100,8 @@ public class ControllerMovement : MonoBehaviour {
     // Controlled by right joystick
     void UpdatePlayerLook()
     {
-        underfootHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerPosition());
-        selectionHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerSelection());
+        underfootHighlighter.transform.position = World.CellToWorld(GetPlayerPosition());
+        selectionHighlighter.transform.position = World.CellToWorld(GetPlayerSelection());
     }
 
     // See if the player picked a different structure to build
@@ -105,19 +109,19 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (Input.GetAxisRaw("D-Pad Horizontal") < -0.5f) // Left
         {
-            selectedBuilding = wallTile;
+            selectedBuilding = wallBuilding;
         }
         else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up
         {
-            selectedBuilding = towerTile;
+            selectedBuilding = towerBuilding;
         }
         else if (Input.GetAxisRaw("D-Pad Horizontal") > 0.5f) // Right
         {
-            selectedBuilding = wallTile; // extractorPrefab
+            selectedBuilding = wallBuilding; // extractorBuilding
         }
         else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down
         {
-            selectedBuilding = wallTile; // researchPrefab
+            selectedBuilding = wallBuilding; // researchBuilding
         }
     }
 
@@ -126,8 +130,12 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (Input.GetAxisRaw("A Button") > 0.5f)
         {
+<<<<<<< HEAD
+            World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
+=======
             print("building");
             WorldGrid.worldTilemap.Build(GetPlayerSelection(), selectedBuilding);
+>>>>>>> parent of a7bb149... Added building collisions and working health
         }
     }
 }

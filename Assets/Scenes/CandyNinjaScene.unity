@@ -122,10 +122,12 @@ GameObject:
   m_Component:
   - component: {fileID: 287304302}
   - component: {fileID: 287304301}
+  - component: {fileID: 287304304}
+  - component: {fileID: 287304305}
   - component: {fileID: 287304303}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: World
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +156,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1344775839}
-  - {fileID: 1981553350}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,11 +168,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 287304300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e538406b6d88d24cb6ba1637ba6888d, type: 3}
+  m_Script: {fileID: 11500000, guid: 34dc68d6512eb8c42b0fb1133d9856de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainTilemapGameObject: {fileID: 1344775838}
-  buildingTilemapGameObject: {fileID: 1981553349}
+  buildingManager: {fileID: 287304304}
+  matchManager: {fileID: 287304305}
+--- !u!114 &287304304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287304300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8413d0c47f7d28048990ab3b70c16515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &287304305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287304300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fa7273dd7a6074595734b380f31f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defenderResources: 0
+  researchProgress: 0
+  matchTime: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +282,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1336558912
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139737, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936063801617139719, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Name
+      value: Defender
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
 --- !u!1 &1344775838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1891,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
+=======
 --- !u!1 &1981553349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,3 +2146,4 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
+>>>>>>> parent of a7bb149... Added building collisions and working health
