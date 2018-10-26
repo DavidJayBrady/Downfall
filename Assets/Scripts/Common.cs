@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,8 +42,8 @@ public class Common
     public static Vector3Int AngleToVector3Int(float angle)
     {
         angle = ((angle % 360) + 360) % 360;
-        int x = angle < 60 || angle > 300 ? 1 : (angle > 120 && angle < 240 ? -1 : 0);
-        int y = angle > 30 && angle < 150 ? 1 : (angle > 210 && angle < 330 ? -1 : 0);
+        int x = angle < 67.5f || angle > 292.5f ? 1 : (angle > 112.5f && angle < 247.5f ? -1 : 0);
+        int y = angle > 22.5f && angle < 157.5f ? 1 : (angle > 202.5f && angle < 337.5f ? -1 : 0);
         return new Vector3Int(x, y, 0);
     }
 

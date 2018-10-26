@@ -22,7 +22,6 @@ public class MatchManager : MonoBehaviour
     void Update()
     {
         matchTime = Time.time - matchTimeStart;
-        print(defenderResources);
     }
 
     // Adds defender resources
