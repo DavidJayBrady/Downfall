@@ -1,16 +1,25 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Common
 {
+    // Converts a controller id and axis name to the format "Jx Input Name"
+    public static float GetControllerInputAxis(int controllerID, string axisName)
+    {
+        // TODO investigate GetAxisRaw vs GetAxis
+        return Input.GetAxisRaw("J" + controllerID + " " + axisName);
+    }
+
     // Return a vector representation of the joystick input
     // Scale defaults to 1.0f
     // Interprets 90+% input treated as full
-    public static Vector3 GetScaledVectorInput(string axisNameX, string axisNameY, float scale = 1.0f)
+    public static Vector3 GetScaledVectorInput(int controllerID, string axisNameX, string axisNameY, float scale = 1.0f)
     {
-        Vector3 result = new Vector3(Input.GetAxisRaw(axisNameX), Input.GetAxisRaw(axisNameY), 0.0f);
-        float effectiveScale = Mathf.Min(1.0f, Mathf.Sqrt(Mathf.Pow(Input.GetAxisRaw(axisNameX) * 1.1f, 2) + Mathf.Pow(Input.GetAxisRaw(axisNameY) * 1.1f, 2))) * scale;
+        float x = GetControllerInputAxis(controllerID, axisNameX);
+        float y = GetControllerInputAxis(controllerID, axisNameY);
+        Vector3 result = new Vector3(x, y, 0.0f);
+        float effectiveScale = Mathf.Min(1.0f, Mathf.Sqrt(Mathf.Pow(x * 1.1f, 2) + Mathf.Pow(y * 1.1f, 2))) * scale;
         VectorNormalize(ref result, effectiveScale);
         return result;
     }
