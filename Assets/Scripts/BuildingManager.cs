@@ -46,14 +46,15 @@ public class BuildingManager : MonoBehaviour
         return Buildings[position];
     }
 
+    // TODO uncomment
     public bool BuildAt(Vector3Int position, Building buildingPrefab)
     {
         if (Buildings.ContainsKey(position))
             return false;
-        if (World.Instance.matchManager.HasResources(buildingPrefab.buildCost))
-            return false;
+        //if (World.Instance.matchManager.HasResources(buildingPrefab.buildCost))
+        //    return false;
         Building building = Instantiate<Building>(buildingPrefab, World.CellToWorld(position), Quaternion.identity);
-        World.Instance.matchManager.RemoveResources(buildingPrefab.buildCost);
+        //World.Instance.matchManager.RemoveResources(buildingPrefab.buildCost);
         Buildings.Add(position, building);
         return true;
     }

@@ -23,10 +23,7 @@ public class ControllerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _rigidbody2D = this.GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
         selectedBuilding = wallBuilding;
-=======
->>>>>>> parent of a7bb149... Added building collisions and working health
     }
 	
 	// Update is called once per frame
@@ -130,12 +127,7 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (Input.GetAxisRaw("A Button") > 0.5f)
         {
-<<<<<<< HEAD
             World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
-=======
-            print("building");
-            WorldGrid.worldTilemap.Build(GetPlayerSelection(), selectedBuilding);
->>>>>>> parent of a7bb149... Added building collisions and working health
         }
     }
 }
