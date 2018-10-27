@@ -13,16 +13,17 @@ public class ControllerMovement : MonoBehaviour {
     public GameObject selectionHighlighter;
     public GameObject _camera; // Named with an underscore to avoid issues with Component.camera
 
-    private GameObject selectedBuilding;
-    public GameObject wallPrefab;
-    public GameObject towerPrefab;
+    private Building selectedBuilding;
+    public Building wallBuilding;
+    public Building towerBuilding;
 
-    public Vector2 lookVector = new Vector2(-1.0f, -1.0f);
+    private Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     private Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
 
     // Use this for initialization
     void Start () {
         _rigidbody2D = this.GetComponent<Rigidbody2D>();
+        selectedBuilding = wallBuilding;
     }
 	
 	// Update is called once per frame
@@ -68,7 +69,7 @@ public class ControllerMovement : MonoBehaviour {
     // Returns the position of the tile the player is on
     Vector3Int GetPlayerPosition()
     {
-        return WorldGrid.WorldToCell(this.transform.position);
+        return World.WorldToCell(this.transform.position);
     }
 
     // Returns the position of the tile in the direction the player is looking, or under the player if not looking
@@ -87,7 +88,6 @@ public class ControllerMovement : MonoBehaviour {
         }
         // Calculate the Vector3Int for the grid
         tempLookVector = lookVector;
-        Vector3Int selectionVector = GetPlayerPosition();
         Common.RotateVector2(ref tempLookVector, 45);
         float lookAngle = Common.VectorAngleDegrees(tempLookVector);
         return GetPlayerPosition() + Common.AngleToVector3Int(lookAngle);
@@ -97,30 +97,28 @@ public class ControllerMovement : MonoBehaviour {
     // Controlled by right joystick
     void UpdatePlayerLook()
     {
-        underfootHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerPosition());
-        selectionHighlighter.transform.position = WorldGrid.CellToWorld(GetPlayerSelection());
+        underfootHighlighter.transform.position = World.CellToWorld(GetPlayerPosition());
+        selectionHighlighter.transform.position = World.CellToWorld(GetPlayerSelection());
     }
 
     // See if the player picked a different structure to build
     void UpdateBuildingChoice()
     {
-        print("x: " + Input.GetAxisRaw("D-Pad Horizontal"));
-        print("y: " + Input.GetAxisRaw("D-Pad Vertical"));
         if (Input.GetAxisRaw("D-Pad Horizontal") < -0.5f) // Left
         {
-            selectedBuilding = wallPrefab;
+            selectedBuilding = wallBuilding;
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up 
+        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up
         {
-            selectedBuilding = towerPrefab;
+            selectedBuilding = towerBuilding;
         }
         else if (Input.GetAxisRaw("D-Pad Horizontal") > 0.5f) // Right
         {
-            selectedBuilding = wallPrefab; // extractorPrefab
+            selectedBuilding = wallBuilding; // extractorBuilding
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down 
+        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down
         {
-            selectedBuilding = wallPrefab; // researchPrefab
+            selectedBuilding = wallBuilding; // researchBuilding
         }
     }
 
@@ -129,7 +127,7 @@ public class ControllerMovement : MonoBehaviour {
     {
         if (Input.GetAxisRaw("A Button") > 0.5f)
         {
-            Instantiate(selectedBuilding, WorldGrid.CellToWorld(GetPlayerSelection()), Quaternion.identity);
+            World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
         }
     }
 }
