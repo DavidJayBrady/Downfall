@@ -190,58 +190,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &533316418 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3223689815748276381, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1398464461}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &533316420
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533316418}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!1 &832718031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6113691968491111344, guid: 88decde9a69b15b4289529f2e240a11f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1486471746}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &832718036
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832718031}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1052065099
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,21 +752,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall
       objectReference: {fileID: 0}
-    - target: {fileID: 3223689815748276381, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792315872260089131, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792315872260089131, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
-        type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 538207e9caa6d7c4f9de549f4eeb6f6d, type: 3}
 --- !u!1001 &1486471746
@@ -901,7 +834,7 @@ PrefabInstance:
     - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
         type: 3}
       propertyPath: layerMaskOption.m_Bits
-      value: 1024
+      value: 1536
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
