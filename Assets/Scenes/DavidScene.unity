@@ -807,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 3223689815748276381, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7792315872260089131, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
         type: 3}
@@ -888,6 +888,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attacker
       objectReference: {fileID: 0}
+    - target: {fileID: 6113691968491111344, guid: 88decde9a69b15b4289529f2e240a11f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
+        type: 3}
+      propertyPath: layerMaskOption.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
 --- !u!1 &1736779580
@@ -916,7 +931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736779580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.95, y: -0.94, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519417529}
