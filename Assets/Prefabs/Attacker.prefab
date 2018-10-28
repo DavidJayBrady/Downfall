@@ -91,8 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6113691968491111342}
-  - component: {fileID: 6113691968491111340}
   - component: {fileID: 6113691968491111347}
+  - component: {fileID: 6531529527643952706}
   - component: {fileID: 6047351566284431002}
   m_Layer: 0
   m_Name: Attacker
@@ -119,25 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6113691968491111340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6113691968491111344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097affbbda66d5444aa87a6d385a1ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  underfootHighlighter: {fileID: 6113691969844228115}
-  selectionHighlighter: {fileID: 6113691969090041660}
-  _camera: {fileID: 1474692090511425919}
-  wallPrefab: {fileID: 3223689815748276381, guid: 538207e9caa6d7c4f9de549f4eeb6f6d,
-    type: 3}
-  towerPrefab: {fileID: 206375678581318652, guid: dc4454e34ed20314f9a864ae25a35d1a,
-    type: 3}
 --- !u!50 &6113691968491111347
 Rigidbody2D:
   serializedVersion: 4
@@ -159,6 +140,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6531529527643952706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113691968491111344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fddeb8b3890744a86131d2091c2ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  cameraSpeed: 15
+  _camera: {fileID: 1474692090511425919}
+  lookVector: {x: -1, y: -1}
 --- !u!114 &6047351566284431002
 MonoBehaviour:
   m_ObjectHideFlags: 0
