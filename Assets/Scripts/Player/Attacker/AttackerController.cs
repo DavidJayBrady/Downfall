@@ -20,7 +20,7 @@ public class AttackerController : MonoBehaviour
     {
         if (_attackCoolDown <= 0)
         {
-            if (Input.GetAxisRaw("Right Trigger") > .5f)
+            if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
             {
                 BasicAtack();
             }

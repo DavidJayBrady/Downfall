@@ -8,6 +8,7 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float baseSpeed = 5.0f;
     public float cameraSpeed = 15.0f;
     
     public GameObject _camera;

@@ -34,7 +34,7 @@ public class BasicAttack : MonoBehaviour
 
     void UpdateLookVector()
     {
-        Vector2 lastMoveAttempt = Common.GetScaledVectorInput("Horizontal", "Vertical");
+        Vector2 lastMoveAttempt = Common.GetScaledVectorInput(1, "Horizontal", "Vertical");
         if (lastMoveAttempt.magnitude > .5f)
         {
             _lookVector = lastMoveAttempt;
