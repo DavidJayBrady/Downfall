@@ -31,28 +31,23 @@ public class DefenderController : MonoBehaviour
         CheckPlayerBuilding();
     }
 
-    // Returns true when the player is in camera mode
-    bool IsCameraMode()
-    {
-        return Input.GetAxisRaw("Right Trigger") > 0.1f;
-    }
-
     // Returns true when the player has a building selected and camera mode is off
-    bool IsBuildMode()
+    public bool IsBuildMode()
     {
-        return selectedBuilding != null && !IsCameraMode();
+        return selectedBuilding != null && !playerController.IsCameraMode();
     }
 
     // Returns the position of the tile the player is on
-    Vector3Int GetPlayerPosition()
+    public Vector3Int GetPlayerPosition()
     {
         return World.WorldToCell(this.transform.position);
     }
 
-    // Returns the position of the tile in the direction the player is looking, or under the player if not looking
-    Vector3Int GetPlayerSelection()
+    // Returns the position of the tile in the direction the player is looking
+    public Vector3Int GetPlayerSelection()
     {
         // Calculate the Vector3Int for the grid
+        // TODO investigate bug where this function always returns up (1,1,0)
         Vector2 lookVector = playerController.lookVector;
         Common.RotateVector2(ref lookVector, 45);
         float lookAngle = Common.VectorAngleDegrees(lookVector);
@@ -60,8 +55,7 @@ public class DefenderController : MonoBehaviour
     }
 
     // Update the direction the player is looking
-    // Controlled by right joystick
-    void UpdatePlayerLook()
+    private void UpdatePlayerLook()
     {
         underfootHighlighter.transform.position = World.CellToWorld(GetPlayerPosition());
         if (IsBuildMode())
@@ -79,36 +73,36 @@ public class DefenderController : MonoBehaviour
     }
 
     // See if the player picked a different structure to build
-    void UpdateBuildingChoice()
+    private void UpdateBuildingChoice()
     {
-        if (Input.GetAxisRaw("D-Pad Horizontal") < -0.5f) // Left
+        if (Common.GetControllerInputAxis(playerController.controllerID, "D-Pad Horizontal") < -0.5f) // Left
         {
             selectedBuilding = wallBuilding;
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up
+        else if (Common.GetControllerInputAxis(playerController.controllerID, "D-Pad Vertical") > 0.5f) // Up
         {
             selectedBuilding = towerBuilding;
         }
-        else if (Input.GetAxisRaw("D-Pad Horizontal") > 0.5f) // Right
+        else if (Common.GetControllerInputAxis(playerController.controllerID, "D-Pad Horizontal") > 0.5f) // Right
         {
-            selectedBuilding = extractorBuilding; // extractorBuilding
+            selectedBuilding = extractorBuilding;
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down
+        else if (Common.GetControllerInputAxis(playerController.controllerID, "D-Pad Vertical") < -0.5f) // Down
         {
-            selectedBuilding = researchBuilding; // researchBuilding
+            selectedBuilding = researchBuilding;
         }
-        else if (Input.GetAxisRaw("B Button") > 0.5f)
+        else if (Common.GetControllerInputAxis(playerController.controllerID, "B Button") > 0.5f)
         {
             selectedBuilding = null;
         }
     }
 
     // Check if the player built a structure
-    void CheckPlayerBuilding()
+    private void CheckPlayerBuilding()
     {
         if (IsBuildMode())
         {
-            if (Input.GetAxisRaw("A Button") > 0.5f)
+            if (Common.GetControllerInputAxis(playerController.controllerID, "A Button") > 0.5f)
             {
                 World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
             }

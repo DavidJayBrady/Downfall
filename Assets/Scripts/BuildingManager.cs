@@ -16,6 +16,7 @@ public class BuildingManager : MonoBehaviour
     void Update()
     {
         // Check for buildings that are destroyed and remove them
+        // TODO update so buildings destroy themselves and update the building manager
         HashSet<Vector3Int> positionsToRemove = new HashSet<Vector3Int>();
         foreach (Vector3Int position in Buildings.Keys)
         {

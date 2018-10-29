@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Common
 {
+    // Converts a controller id and axis name to the format "Jx Input Name"
+    public static float GetControllerInputAxis(int controllerID, string axisName)
+    {
+        // TODO investigate GetAxisRaw vs GetAxis
+        return Input.GetAxisRaw("J" + controllerID + " " + axisName);
+    }
+
     // Return a vector representation of the joystick input
     // Scale defaults to 1.0f
     // Interprets 90+% input treated as full
-    public static Vector3 GetScaledVectorInput(string axisNameX, string axisNameY, float scale = 1.0f)
+    public static Vector3 GetScaledVectorInput(int controllerID, string axisNameX, string axisNameY, float scale = 1.0f)
     {
-        Vector3 result = new Vector3(Input.GetAxisRaw(axisNameX), Input.GetAxisRaw(axisNameY), 0.0f);
-        float effectiveScale = Mathf.Min(1.0f, Mathf.Sqrt(Mathf.Pow(Input.GetAxisRaw(axisNameX) * 1.1f, 2) + Mathf.Pow(Input.GetAxisRaw(axisNameY) * 1.1f, 2))) * scale;
+        float x = GetControllerInputAxis(controllerID, axisNameX);
+        float y = GetControllerInputAxis(controllerID, axisNameY);
+        Vector3 result = new Vector3(x, y, 0.0f);
+        float effectiveScale = Mathf.Min(1.0f, Mathf.Sqrt(Mathf.Pow(x * 1.1f, 2) + Mathf.Pow(y * 1.1f, 2))) * scale;
         VectorNormalize(ref result, effectiveScale);
         return result;
     }
@@ -42,8 +51,8 @@ public class Common
     public static Vector3Int AngleToVector3Int(float angle)
     {
         angle = ((angle % 360) + 360) % 360;
-        int x = angle < 60 || angle > 300 ? 1 : (angle > 120 && angle < 240 ? -1 : 0);
-        int y = angle > 30 && angle < 150 ? 1 : (angle > 210 && angle < 330 ? -1 : 0);
+        int x = angle < 67.5f || angle > 292.5f ? 1 : (angle > 112.5f && angle < 247.5f ? -1 : 0);
+        int y = angle > 22.5f && angle < 157.5f ? 1 : (angle > 202.5f && angle < 337.5f ? -1 : 0);
         return new Vector3Int(x, y, 0);
     }
 

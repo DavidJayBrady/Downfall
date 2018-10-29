@@ -39,13 +39,13 @@ public class ControllerMovement : MonoBehaviour {
     // Update the player's velocity
     void UpdatePlayerVelocity()
     {
-        _rigidbody2D.velocity = Common.GetScaledVectorInput("Horizontal", "Vertical", speed) * new Vector2(1.0f, 0.5f);
+        _rigidbody2D.velocity = Common.GetScaledVectorInput(1, "Left Horizontal", "Left Vertical", speed) * new Vector2(1.0f, 0.5f);
     }
     
     // Returns true when the player is in camera mode
     bool IsCameraMode()
     {
-        return Input.GetAxisRaw("Right Trigger") > 0.1f;
+        return Common.GetControllerInputAxis(1, "Right Trigger") > 0.1f;
     }
 
     // Update the camera's position and/or velocity
@@ -55,7 +55,7 @@ public class ControllerMovement : MonoBehaviour {
         {
             // Detach the camera from the player
             _camera.transform.parent = null;
-            Vector3 deltaPos = Common.GetScaledVectorInput("Horizontal2", "Vertical2", cameraSpeed * Time.deltaTime) * new Vector2(1.0f, 0.5f);
+            Vector3 deltaPos = Common.GetScaledVectorInput(1, "Right Horizontal", "Right Vertical", cameraSpeed * Time.deltaTime) * new Vector2(1.0f, 0.5f);
             _camera.transform.position += deltaPos;
         }
         else
@@ -79,7 +79,7 @@ public class ControllerMovement : MonoBehaviour {
         Vector2 tempLookVector;
         if (!IsCameraMode())
         {
-            tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2"); ;
+            tempLookVector = Common.GetScaledVectorInput(1, "Right Horizontal", "Right Vertical"); ;
             if (tempLookVector.magnitude > 0.5f)
             {
                 Common.VectorNormalize(ref tempLookVector);
@@ -104,19 +104,19 @@ public class ControllerMovement : MonoBehaviour {
     // See if the player picked a different structure to build
     void UpdateBuildingChoice()
     {
-        if (Input.GetAxisRaw("D-Pad Horizontal") < -0.5f) // Left
+        if (Common.GetControllerInputAxis(1, "D-Pad Horizontal") < -0.5f) // Left
         {
             selectedBuilding = wallBuilding;
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") > 0.5f) // Up
+        else if (Common.GetControllerInputAxis(1, "D-Pad Vertical") > 0.5f) // Up
         {
             selectedBuilding = towerBuilding;
         }
-        else if (Input.GetAxisRaw("D-Pad Horizontal") > 0.5f) // Right
+        else if (Common.GetControllerInputAxis(1, "D-Pad Horizontal") > 0.5f) // Right
         {
             selectedBuilding = wallBuilding; // extractorBuilding
         }
-        else if (Input.GetAxisRaw("D-Pad Vertical") < -0.5f) // Down
+        else if (Common.GetControllerInputAxis(1, "D-Pad Vertical") < -0.5f) // Down
         {
             selectedBuilding = wallBuilding; // researchBuilding
         }
@@ -125,7 +125,7 @@ public class ControllerMovement : MonoBehaviour {
     // Check if the player built a structure
     void CheckPlayerBuilding()
     {
-        if (Input.GetAxisRaw("A Button") > 0.5f)
+        if (Common.GetControllerInputAxis(1, "A Button") > 0.5f)
         {
             World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
         }

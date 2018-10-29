@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     
     public GameObject _camera;
 
+    public int controllerID = 1;
     public Vector2 lookVector = new Vector2(-1.0f, -1.0f);
     protected Rigidbody2D _rigidbody2D; // Named with an underscore to avoid issues with Component.rigidbody2D
 
@@ -30,25 +31,25 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update the player's velocity
-    void UpdatePlayerVelocity()
+    private void UpdatePlayerVelocity()
     {
-        _rigidbody2D.velocity = Common.GetScaledVectorInput("Horizontal", "Vertical", speed) * new Vector2(1.0f, 0.5f);
+        _rigidbody2D.velocity = Common.GetScaledVectorInput(controllerID, "Left Horizontal", "Left Vertical", speed) * new Vector2(1.0f, 0.5f);
     }
 
     // Returns true when the player is in camera mode
-    bool IsCameraMode()
+    public bool IsCameraMode()
     {
-        return Input.GetAxisRaw("Right Trigger") > 0.1f;
+        return Common.GetControllerInputAxis(controllerID, "Right Trigger") > 0.1f;
     }
 
     // Update the camera's position and/or velocity
-    void UpdateCamera()
+    private void UpdateCamera()
     {
         if (IsCameraMode())
         {
             // Detach the camera from the player
             _camera.transform.parent = null;
-            Vector3 deltaPos = Common.GetScaledVectorInput("Horizontal2", "Vertical2", cameraSpeed * Time.deltaTime) * new Vector2(1.0f, 0.5f);
+            Vector3 deltaPos = Common.GetScaledVectorInput(controllerID, "Right Horizontal", "Right Vertical", cameraSpeed * Time.deltaTime) * new Vector2(1.0f, 0.5f);
             _camera.transform.position += deltaPos;
         }
         else
@@ -61,11 +62,11 @@ public class PlayerController : MonoBehaviour
 
     // Update the direction the player is looking
     // Controlled by right joystick
-    void UpdatePlayerLook()
+    private void UpdatePlayerLook()
     {
         if (!IsCameraMode())
         {
-            Vector2 tempLookVector = Common.GetScaledVectorInput("Horizontal2", "Vertical2"); ;
+            Vector2 tempLookVector = Common.GetScaledVectorInput(controllerID, "Right Horizontal", "Right Vertical"); ;
             if (tempLookVector.magnitude > 0.5f)
             {
                 Common.VectorNormalize(ref tempLookVector);
