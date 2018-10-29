@@ -19,8 +19,8 @@ public class WallHealth : MonoBehaviour
             Destroy(gameObject);
         } else if(!startedDmg && GetComponent<BoxCollider2D>().enabled){
             //takes 10 dmg every 2 seconds
-            StartCoroutine(takeDamage(10,2.0f));
-            startedDmg = true;
+            //StartCoroutine(takeDamage(10,2.0f));
+            //startedDmg = true;
         }
     }
 

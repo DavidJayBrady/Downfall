@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    private int health = 1;
-    public int maxHealth = 1;
+    private int health;
+    public int maxHealth = 200;
     public int upgradeLevel = 1;
 
     public int buildCost = 1;
@@ -22,8 +22,11 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO remove when working
-        Damage(1);
+        Debug.Log(health);
+        if (IsDestroyed())
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Damage(int amount)
