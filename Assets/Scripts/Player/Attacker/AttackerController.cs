@@ -8,11 +8,15 @@ public class AttackerController : MonoBehaviour
     private BasicAttack _basickAttack;
     private float _attackCoolDown;
 
+    public int AttackerHealth;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         _basickAttack = GetComponent<BasicAttack>();
         _attackCoolDown = 0f;
+        AttackerHealth = 0;
     }
 
     // Update is called once per frame
@@ -38,8 +42,11 @@ public class AttackerController : MonoBehaviour
         _attackCoolDown = 2;
     }
 
-    public void towerHit()
+    public void towerHit(int dmg)
     {
         Debug.Log("tower hit");
+        AttackerHealth -= dmg;
+        Debug.Log("health" + AttackerHealth);
+
     }
 }
