@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3947089100679659587}
   m_Layer: 0
   m_Name: Attacker
-  m_TagString: Untagged
+  m_TagString: Attacker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6531529527643952706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  baseSpeed: 5
   cameraSpeed: 15
   _camera: {fileID: 1474692090511425919}
+  controllerID: 1
   lookVector: {x: -1, y: -1}
 --- !u!114 &7562552959325936378
 MonoBehaviour:
@@ -170,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecebab61bd81b346bc4be10bd2f3731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SetAttackerHealth: 0
 --- !u!114 &6047351566284431002
 MonoBehaviour:
   m_ObjectHideFlags: 0

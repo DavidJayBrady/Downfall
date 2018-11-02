@@ -22,7 +22,7 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health);
+        //Debug.Log(health);
         if (IsDestroyed())
         {
             Destroy(gameObject);
