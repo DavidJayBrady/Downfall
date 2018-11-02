@@ -8,7 +8,9 @@ public class AttackerController : MonoBehaviour
     private BasicAttack _basickAttack;
     private float _attackCoolDown;
 
-    public int AttackerHealth;
+    public int SetAttackerHealth;
+
+    private static int AttackerHealth;
     
 
     // Start is called before the first frame update
@@ -16,12 +18,16 @@ public class AttackerController : MonoBehaviour
     {
         _basickAttack = GetComponent<BasicAttack>();
         _attackCoolDown = 0f;
-        AttackerHealth = 0;
+        AttackerHealth = SetAttackerHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(AttackerHealth <= 0){
+            Destroy(gameObject);
+        }
+        
         if (_attackCoolDown <= 0)
         {
             if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
