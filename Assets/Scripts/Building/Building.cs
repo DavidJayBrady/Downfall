@@ -14,7 +14,7 @@ public class Building : MonoBehaviour
     public static BuildingType buildingType = BuildingType.None;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         health = maxHealth;
     }
@@ -23,10 +23,6 @@ public class Building : MonoBehaviour
     void Update()
     {
         //Debug.Log(health);
-        if (IsDestroyed())
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void Damage(int amount)
