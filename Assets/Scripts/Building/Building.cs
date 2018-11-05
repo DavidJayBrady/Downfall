@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    private int health;
+    private int _health;
     public int maxHealth = 200;
     public int upgradeLevel = 1;
 
@@ -16,13 +16,13 @@ public class Building : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        _health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(health);
+        //Debug.Log(_health);
         if (IsDestroyed())
         {
             Destroy(gameObject);
@@ -31,12 +31,13 @@ public class Building : MonoBehaviour
 
     public void Damage(int amount)
     {
-        health -= amount;
+        Debug.Log(_health);
+        _health -= amount;
     }
 
-    // Return true when the building is to be deleted (aka health <= 0)
+    // Return true when the building is to be deleted (aka _health <= 0)
     public bool IsDestroyed()
     {
-        return health <= 0;
+        return _health <= 0;
     }
 }
