@@ -13,7 +13,7 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = 5;
+
     }
 
     void Update()

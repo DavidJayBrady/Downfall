@@ -11,6 +11,12 @@ public class Common
         return Input.GetAxisRaw("J" + controllerID + " " + axisName);
     }
 
+    // Converts a controller id and axis name to the format "Jall Input Name"
+    public static float GetAllInputAxis(string axisName)
+    {
+        return Input.GetAxisRaw("Jall " + axisName);
+    }
+
     // Return a vector representation of the joystick input
     // Scale defaults to 1.0f
     // Interprets 90+% input treated as full
