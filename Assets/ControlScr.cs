@@ -62,7 +62,7 @@ public class ControlScr : MonoBehaviour
         void Update()
     {
 
-        float Scroll = Input.GetAxis("Horizontal");   //gets user input for joystick
+        float Scroll = Common.GetAllInputAxis("Left Horizontal");   //gets user input for joystick
 
         if (Scroll == -1 && canInteract)
         {
@@ -80,7 +80,7 @@ public class ControlScr : MonoBehaviour
         }
 
         //get's user button input
-        if (Input.GetButtonUp("AButton"))
+        if (Common.GetAllInputAxis("A Button") == 1)
         {
 
             SceneManager.LoadScene("MainMenu");

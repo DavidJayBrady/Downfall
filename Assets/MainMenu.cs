@@ -107,7 +107,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
-        float Scroll = Input.GetAxis("Vertical");   // get joystick input
+        float Scroll = Common.GetAllInputAxis("Left Vertical");   // get joystick input
 
         //mover around depending on joystick
         if (Scroll == 1 && canInteract)
@@ -127,11 +127,11 @@ public class MainMenu : MonoBehaviour
 
 
         //input for A button
-        if (Input.GetButtonUp("AButton"))
+        if (Common.GetAllInputAxis("A Button") == 1)
         {
             if (CurrentSelecting == 1)
             {
-                SceneManager.LoadScene("AbuScene"); //   PlayGame();     //play game
+                SceneManager.LoadScene("MainScene"); //   PlayGame();     //play game
             }
             else if (CurrentSelecting ==2)
             {

@@ -157,7 +157,7 @@ public class SettingsMenu : MonoBehaviour
                                         //this is in case the player goes back and forth 
                                         //between menu and the void start isnt reached
 
-        float Scroll = Input.GetAxis("Vertical");   //gets user input for joystick
+        float Scroll = Common.GetAllInputAxis("Left Vertical");   //gets user input for joystick
 
         if (Scroll == -1 && canInteract)
         {
@@ -177,7 +177,7 @@ public class SettingsMenu : MonoBehaviour
 
 
         //get's user button input
-        if (Input.GetButtonUp("AButton"))
+        if (Common.GetAllInputAxis("A Button") == 1)
         {
             //back button
             if (CurrentSelecting == 1)
