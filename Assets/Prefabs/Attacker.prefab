@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecebab61bd81b346bc4be10bd2f3731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SetAttackerHealth: 0
 --- !u!114 &6047351566284431002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,11 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0966a84cc8eb045818134393de24a088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 75
   attackVector: {x: -1, y: -1}
   layerMaskOption:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
 --- !u!61 &3947089100679659587
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -194,6 +194,11 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2375082322214580948, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: controllerID
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
 --- !u!1001 &708117538
@@ -389,6 +394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375082322214580948, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: controllerID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}

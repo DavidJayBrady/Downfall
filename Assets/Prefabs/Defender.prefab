@@ -412,7 +412,7 @@ MonoBehaviour:
   selectionHighlighter: {fileID: 3662817634744388515}
   wallBuilding: {fileID: 8935396159940554185, guid: 2912373ccde11e64381ca1f97d8fbfef,
     type: 3}
-  towerBuilding: {fileID: 6200148492607476204, guid: afee5c944a4862543bb7d3a3362da95b,
+  towerBuilding: {fileID: 5725567264135467755, guid: afee5c944a4862543bb7d3a3362da95b,
     type: 3}
   extractorBuilding: {fileID: 6539244295220641822, guid: 3dabf1f6ad4732642b3a1607fa5cd57b,
     type: 3}
