@@ -5,7 +5,6 @@ using UnityEngine;
 public class BasicAttack : MonoBehaviour
 {
 
-    private Vector2 _lookVector;
 
     public int damage;
     public Vector2 attackVector = new Vector2(-1.0f, -1.0f);
@@ -14,37 +13,25 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = 5;
+
     }
 
-    // Update is called once     per frame
     void Update()
     {
 
     }
 
-    public void Attack()
+    public void Attack(Vector2 lookVector)
     {
-        UpdateLookVector();
-        RaycastHit2D hit = FindObjectToHit();
+        RaycastHit2D hit = FindObjectToHit(lookVector);
         HitObject(hit);
     }
 
 
-
-    void UpdateLookVector()
-    {
-        Vector2 lastMoveAttempt = Common.GetScaledVectorInput(1, "Horizontal", "Vertical");
-        if (lastMoveAttempt.magnitude > .5f)
-        {
-            _lookVector = lastMoveAttempt;
-        }
-    }
-
-    RaycastHit2D FindObjectToHit()
+    RaycastHit2D FindObjectToHit(Vector2 lookVector)
     {
         return Physics2D.Raycast(origin: transform.position,
-                                    direction: _lookVector,
+                                    direction: lookVector,
                                     distance: Mathf.Sqrt(3),
                                     layerMask: layerMaskOption);
     }

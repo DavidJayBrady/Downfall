@@ -176,4 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  buildingType: 1
+  upgradeLevel: 1
+  buildCost: 1

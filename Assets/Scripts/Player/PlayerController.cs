@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     // Returns true when the player is in camera mode
     public bool IsCameraMode()
     {
-        return Common.GetControllerInputAxis(controllerID, "Right Trigger") > 0.1f;
+        return Common.GetControllerInputAxis(controllerID, "Left Bumper") > 0.1f;
     }
 
     // Update the camera's position and/or velocity

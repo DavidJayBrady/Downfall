@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  baseSpeed: 5
   cameraSpeed: 15
   _camera: {fileID: 5356908501010248152}
   controllerID: 1
@@ -411,7 +412,7 @@ MonoBehaviour:
   selectionHighlighter: {fileID: 3662817634744388515}
   wallBuilding: {fileID: 8935396159940554185, guid: 2912373ccde11e64381ca1f97d8fbfef,
     type: 3}
-  towerBuilding: {fileID: 609980845429227722, guid: da1fc1b1615dc6847a30ac6db1eb3669,
+  towerBuilding: {fileID: 5725567264135467755, guid: afee5c944a4862543bb7d3a3362da95b,
     type: 3}
   extractorBuilding: {fileID: 6539244295220641822, guid: 3dabf1f6ad4732642b3a1607fa5cd57b,
     type: 3}
