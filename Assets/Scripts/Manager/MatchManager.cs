@@ -6,7 +6,10 @@ using UnityEngine;
 public class MatchManager : MonoBehaviour
 {
     public int defenderResources = 0;
-    public float researchProgress = 0.0f;
+
+   
+    public static float researchProgress = 0.0f;
+    //public float setResearchProgress = 0.0f;
 
     private float matchTimeStart;
     // Time in seconds since the match started
@@ -16,12 +19,16 @@ public class MatchManager : MonoBehaviour
     void Start()
     {
         matchTimeStart = Time.time;
+        //researchProgress = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         matchTime = Time.time - matchTimeStart;
+        if(DidDefendersWin()){
+            Debug.Log("Defenders WON!");
+        }
     }
 
     // Adds defender resources
@@ -51,8 +58,13 @@ public class MatchManager : MonoBehaviour
     public void AddResearch(float amount)
     {
         researchProgress += amount;
+        Debug.Log("Research Progress: " + researchProgress);
     }
 
+    public void ResetResearch(){
+        researchProgress = 0.0f;
+    }
+        
     // Return true when research progress surpasses 100%
     public bool DidDefendersWin()
     {
