@@ -174,11 +174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7338254676207477155, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
-        type: 3}
-      propertyPath: m_Name
-      value: Defender
-      objectReference: {fileID: 0}
     - target: {fileID: 7168965677976920033, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -188,6 +183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338254676207477155, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Name
+      value: Defender
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
@@ -253,11 +253,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7338254676207477155, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
-        type: 3}
-      propertyPath: m_Name
-      value: Defender (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2375082322214580948, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
         type: 3}
       propertyPath: controllerID
@@ -277,6 +272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338254676207477155, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Name
+      value: Defender (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
