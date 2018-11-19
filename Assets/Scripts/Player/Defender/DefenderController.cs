@@ -17,6 +17,7 @@ public class DefenderController : MonoBehaviour
     public Building extractorBuilding;
     public Building researchBuilding;
 
+
     // Use this for initialization
     void Start()
     {

@@ -177,7 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
-  buildingType: 4
+  upgradeLevel: 1
+  buildCost: 1
 --- !u!114 &946378196169258510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb63a5b1f09165489253ec5794fa097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchManager: {fileID: 2644297611899626049, guid: 79b394b6d378b014aae6d7e8d72621fc,
+    type: 3}
+  timer: 0
+  progressDelay: 2
+  progressAmount: 5
