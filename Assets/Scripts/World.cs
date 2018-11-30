@@ -12,9 +12,10 @@ public class World : MonoBehaviour
     private GridLayout grid;
     public BuildingManager buildingManager;
     public MatchManager matchManager;
+    public WellManager wellManager;
 
     // Return the world
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -22,6 +23,7 @@ public class World : MonoBehaviour
             grid = GetComponent<GridLayout>();
             buildingManager = GetComponent<BuildingManager>();
             matchManager = GetComponent<MatchManager>();
+            wellManager = GetComponent<WellManager>();
         }
     }
 

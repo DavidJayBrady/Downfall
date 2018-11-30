@@ -70,9 +70,11 @@
     <Compile Include="Assets\Scripts\Building\Tower.cs" />
     <Compile Include="Assets\Scripts\Building\TowerShoot.cs" />
     <Compile Include="Assets\Scripts\Building\Wall.cs" />
+    <Compile Include="Assets\Scripts\Building\Well.cs" />
     <Compile Include="Assets\Scripts\Common.cs" />
     <Compile Include="Assets\Scripts\Manager\BuildingManager.cs" />
     <Compile Include="Assets\Scripts\Manager\MatchManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\WellManager.cs" />
     <Compile Include="Assets\Scripts\Player\Attacker\AttackerController.cs" />
     <Compile Include="Assets\Scripts\Player\Attacker\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Player\Defender\DefenderController.cs" />

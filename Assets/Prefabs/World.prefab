@@ -1063,6 +1063,7 @@ GameObject:
   - component: {fileID: 2644297611899626049}
   - component: {fileID: 4682561955352794247}
   - component: {fileID: 1014714084821989666}
+  - component: {fileID: 4762494629908625723}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -1110,7 +1111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderResources: 0
-  researchProgress: 0
   matchTime: 0
 --- !u!114 &4682561955352794247
 MonoBehaviour:
@@ -1138,3 +1138,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingManager: {fileID: 0}
   matchManager: {fileID: 0}
+--- !u!114 &4762494629908625723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296265104776592619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d494d2e62c40754b883ded69c0b5a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
