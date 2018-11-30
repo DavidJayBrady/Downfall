@@ -199,6 +199,31 @@ PrefabInstance:
       propertyPath: controllerID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7338254676207477155, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356908501010248152, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278648307484379455, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962187763938523672, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662817634744388515, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
 --- !u!1001 &708117538
@@ -292,6 +317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SetAttackerHealth
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
+        type: 3}
+      propertyPath: layerMaskOption.m_Bits
+      value: 5632
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3947089100679659587, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
@@ -399,6 +429,31 @@ PrefabInstance:
         type: 3}
       propertyPath: controllerID
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338254676207477155, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356908501010248152, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278648307484379455, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962187763938523672, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662817634744388515, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
@@ -536,7 +591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderResources: 0
-  researchProgress: 0
   matchTime: 0
 --- !u!4 &6625611607319485552
 Transform:
@@ -1540,3 +1594,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingManager: {fileID: 0}
   matchManager: {fileID: 0}
+  wellManager: {fileID: 0}

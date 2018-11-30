@@ -40,6 +40,8 @@ public class AttackerController : MonoBehaviour
     {
         UpdateLookVector();
 
+        Debug.Log(_slowTowerStacks);
+
         // Attack
         if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
         {
@@ -59,7 +61,6 @@ public class AttackerController : MonoBehaviour
         {
             _slowTowerStacks -= 1;
             _timeUntilStackRemoved = _timeToRemoveStack;
-            Debug.Log(_slowTowerStacks + " took a stack away!"    );
         }
 
 
@@ -85,8 +86,8 @@ public class AttackerController : MonoBehaviour
     public void TowerHit(int level)
     {
         _timeUntilStackRemoved = _timeToRemoveStack;
-        Debug.Log("tower hit");
-        _slowTowerStacks += 1;
+        if (_slowTowerStacks < 15)
+            _slowTowerStacks += 1;
 
     }
 
@@ -94,9 +95,8 @@ public class AttackerController : MonoBehaviour
     {
         if (!_attacking)
         {
-            _playerController.speed = _playerController.baseSpeed * Mathf.Pow(.9f, _slowTowerStacks);
+            _playerController.speed = Mathf.Max((_playerController.baseSpeed * Mathf.Pow(.9f, _slowTowerStacks)), 1);
             Debug.Log(_playerController.speed);
-            //_playerController.speed = _playerController.baseSpeed;
         }
         else
         {
