@@ -50,10 +50,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.5
+    y: 0.5
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6531529527643952706}
   - component: {fileID: 7562552959325936378}
   - component: {fileID: 6047351566284431002}
-  - component: {fileID: 3947089100679659587}
+  - component: {fileID: 1632605250}
   m_Layer: 0
   m_Name: Attacker
   m_TagString: Attacker
@@ -188,9 +188,9 @@ MonoBehaviour:
   attackVector: {x: -1, y: -1}
   layerMaskOption:
     serializedVersion: 2
-    m_Bits: 1536
---- !u!61 &3947089100679659587
-BoxCollider2D:
+    m_Bits: 5632
+--- !u!58 &1632605250
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -203,18 +203,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.2
 --- !u!1 &6113691969090041660
 GameObject:
   m_ObjectHideFlags: 0
