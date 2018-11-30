@@ -470,6 +470,9 @@ GameObject:
   - component: {fileID: 6126682574648551468}
   - component: {fileID: 3553334297853140714}
   - component: {fileID: 9196573540400640847}
+  - component: {fileID: 1510321646990866057}
+  - component: {fileID: 1510321646990866056}
+  - component: {fileID: 1510321646990866055}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -477,6 +480,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1510321646990866055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510321646990866054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a856d405ff8ea1b4f89aa250ddc96e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1510321646990866056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510321646990866054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37921852c747f0e44ab2ee1123b38112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defenderResources: 0
+  matchTime: 0
+--- !u!114 &1510321646990866057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510321646990866054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95959ab1d427554e9b905594550e6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3113849586667413830
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +631,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fa7273dd7a6074595734b380f31f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defenders: []
   defenderResources: 0
+  matchTimeStart: 0
   matchTime: 0
 --- !u!4 &6625611607319485552
 Transform:
