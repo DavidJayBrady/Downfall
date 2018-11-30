@@ -5,6 +5,7 @@ using UnityEngine;
 // Manage functions related to the match; ie match time, win conditions, etc
 public class MatchManager : MonoBehaviour
 {
+    private GameObject[] defenders;
     public int defenderResources = 0;
 
    
@@ -20,6 +21,7 @@ public class MatchManager : MonoBehaviour
     {
         matchTimeStart = Time.time;
         //researchProgress = 0.0f;
+        defenders = GameObject.FindGameObjectsWithTag("Defender");
     }
 
     // Update is called once per frame
@@ -28,6 +30,10 @@ public class MatchManager : MonoBehaviour
         matchTime = Time.time - matchTimeStart;
         if(DidDefendersWin()){
             Debug.Log("Defenders WON!");
+        }
+        else if (DidAttackerWin())
+        {
+            Debug.Log("Attacker WON!");
         }
     }
 
@@ -74,7 +80,11 @@ public class MatchManager : MonoBehaviour
     // Return true when both defenders are dead
     public bool DidAttackerWin()
     {
-        // TODO
-        return false;
+        foreach (GameObject defender in defenders)
+        {
+            if (defender != null)
+                return false;
+        }
+        return true;
     }
 }

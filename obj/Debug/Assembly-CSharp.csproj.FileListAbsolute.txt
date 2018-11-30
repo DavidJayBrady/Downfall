@@ -170,3 +170,7 @@ C:\Users\jesse\Documents\Downfall\Downfall\Temp\bin\Debug\UnityEngine.SpatialTra
 C:\Users\jesse\Documents\Downfall\Downfall\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\jesse\Documents\Downfall\Downfall\obj\Debug\Assembly-CSharp.dll
 C:\Users\jesse\Documents\Downfall\Downfall\obj\Debug\Assembly-CSharp.pdb
+D:\Workspace\Downfall\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\Workspace\Downfall\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+D:\Workspace\Downfall\obj\Debug\Assembly-CSharp.dll
+D:\Workspace\Downfall\obj\Debug\Assembly-CSharp.pdb
