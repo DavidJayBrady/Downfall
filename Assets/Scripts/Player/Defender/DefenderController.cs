@@ -28,8 +28,9 @@ public class DefenderController : MonoBehaviour
     void Update()
     {
         UpdatePlayerLook();
-        UpdateBuildingChoice();
+        //UpdateBuildingChoice();
         CheckPlayerBuilding();
+
     }
 
     // Returns true when the player has a building selected and camera mode is off
