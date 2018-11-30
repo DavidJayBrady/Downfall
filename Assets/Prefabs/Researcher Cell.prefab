@@ -196,3 +196,4 @@ MonoBehaviour:
   timer: 0
   progressDelay: 2
   progressAmount: 5
+  buildCost: 75

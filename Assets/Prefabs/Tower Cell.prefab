@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc6830b10c26f645bd7998bf47ca8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildCost: 30
 --- !u!60 &9101281088953950657
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   damage: 10
   attackerController: {fileID: 7562552959325936378, guid: 88decde9a69b15b4289529f2e240a11f,
     type: 3}
-  attackDelay: 0
+  attackDelay: 2
 --- !u!1 &5725567264203694148
 GameObject:
   m_ObjectHideFlags: 0

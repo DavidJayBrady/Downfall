@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,8 @@ public class Building : MonoBehaviour
     public int upgradeLevel = 1;
 
     public int buildCost = 1;
+
+    public int specificBuildCost;
 
     public enum BuildingType { None, Wall, Tower, Extractor, Research }
     public static BuildingType buildingType = BuildingType.None;

@@ -15,6 +15,7 @@ public class Researcher : MonoBehaviour
 
     //likewise, progressAmount can be increased when research center is updated.. up to designer which gets changed, same effect tho
     public float progressAmount;
+
     // Start is called before the first frame update
     void Start()
     {

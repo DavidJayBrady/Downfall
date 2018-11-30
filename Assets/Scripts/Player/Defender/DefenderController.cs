@@ -105,7 +105,11 @@ public class DefenderController : MonoBehaviour
         {
             if (Common.GetControllerInputAxis(playerController.controllerID, "A Button") > 0.5f)
             {
-                World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
+                //if defenders have enough resources to build selected building
+                Debug.Log("selected Cost = " + selectedBuilding.specificBuildCost);
+                if(World.Instance.matchManager.defenderResources > selectedBuilding.specificBuildCost){
+                    World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
+                }
             }
         }
     }
