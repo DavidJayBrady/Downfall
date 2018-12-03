@@ -29,8 +29,8 @@ public class Researcher : MonoBehaviour
         timer += Time.deltaTime;
 
         if(timer >= progressDelay){
-            //World.Instance.matchManager.AddResearch(progressAmount);
-            matchManager.AddResearch(progressAmount);
+            World.Instance.matchManager.AddResearch(progressAmount);
+            //matchManager.AddResearch(progressAmount);
             //Debug.Log("Adding Research Progress: " + progressAmount);
 
             timer = 0.0f;
