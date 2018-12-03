@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 public class BasicAttack : MonoBehaviour
@@ -40,7 +41,7 @@ public class BasicAttack : MonoBehaviour
     {
         if (hit.collider != null)
         {
-            hit.collider.GetComponent<Building>().Damage(damage);
+            hit.collider.GetComponent<CanFeelThePain>().Damage(damage);
         }
     }
 }
