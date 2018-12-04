@@ -39,16 +39,22 @@ public class DefenderController : MonoBehaviour, Interfaces.CanFeelThePain
 
     void DieIfDead()
     {
-        if (health < 0)
+        if (IsDead())
         {
-            Debug.Log("HIATT CODE THIS");
+            playerController.speed = 0;
         }
+    }
+
+    // Returns true when the player is dead
+    public bool IsDead()
+    {
+        return health <= 0;
     }
 
     // Returns true when the player has a building selected and camera mode is off
     public bool IsBuildMode()
     {
-        return selectedBuilding != null && !playerController.IsCameraMode();
+        return !IsDead() && selectedBuilding != null && !playerController.IsCameraMode();
     }
 
     // Returns the position of the tile the player is on
