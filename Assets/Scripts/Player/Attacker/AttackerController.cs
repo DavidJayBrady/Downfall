@@ -18,16 +18,20 @@ public class AttackerController : MonoBehaviour
 
     static private float _timeToRemoveStack = 5;
 
+    private Animator _animator;
+
     // Start is called before the first frame update
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
         _basickAttack = GetComponent<BasicAttack>();
-        _attackCoolDown = 0f;
+        _animator = GetComponent<Animator>();
+        _attackCoolDown = 1.0f;
         _attacking = false;
         _lookVector = new Vector2(-1.0f, -1.0f);
 
         _timeUntilStackRemoved = _timeToRemoveStack;
+
     }
 
     void Awake()
@@ -40,12 +44,11 @@ public class AttackerController : MonoBehaviour
     {
         UpdateLookVector();
 
-        Debug.Log(_slowTowerStacks);
-
         // Attack
         if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
         {
             _attacking = true;
+            _animator.SetBool("IsAttacking", _attacking);
             if (_attackCoolDown <= 0)
             {
                 BasicAtack();
@@ -54,6 +57,7 @@ public class AttackerController : MonoBehaviour
         else
         {
             _attacking = false;
+            _animator.SetBool("IsAttacking", _attacking);
         }
 
         // Restore attacker movement over time
@@ -80,7 +84,7 @@ public class AttackerController : MonoBehaviour
     void BasicAtack()
     {
         _basickAttack.Attack(_lookVector);
-        _attackCoolDown = .5f;
+        _attackCoolDown = 1.0f;
     }
 
     public void TowerHit(int level)

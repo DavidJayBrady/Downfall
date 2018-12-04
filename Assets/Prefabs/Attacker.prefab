@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7562552959325936378}
   - component: {fileID: 6047351566284431002}
   - component: {fileID: 1632605250}
+  - component: {fileID: 2067634033}
   m_Layer: 11
   m_Name: Attacker
   m_TagString: Attacker
@@ -205,6 +206,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!95 &2067634033
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113691968491111344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41345d0e1b3d0c64ab2e2a9cbf9bd6b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6113691969090041660
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +451,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300012, guid: 339d83cc060af464dadba4e0da17d64e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed93c6836323afe459ea52c7edccc69c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
