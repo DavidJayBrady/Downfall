@@ -179,6 +179,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Defender 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2512194632091886327, guid: f8750179f76fc7c48a2986b552ec56d4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 883436608cd99534282761137edd6331,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8750179f76fc7c48a2986b552ec56d4, type: 3}
 --- !u!1001 &400296793
@@ -485,27 +491,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attacker
       objectReference: {fileID: 0}
-    - target: {fileID: 6113691968491111344, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: layerMaskOption.m_Bits
-      value: 5632
-      objectReference: {fileID: 0}
-    - target: {fileID: 8205229031998819946, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ed93c6836323afe459ea52c7edccc69c,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
 --- !u!1 &1853103884
