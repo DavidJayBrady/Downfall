@@ -20,17 +20,21 @@ public class AttackerController : MonoBehaviour
 
     private Animator _animator;
 
+    private bool _facingLeft;
+
     // Start is called before the first frame update
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
         _basickAttack = GetComponent<BasicAttack>();
-        _animator = GetComponent<Animator>();
         _attackCoolDown = 1.0f;
-        _attacking = false;
         _lookVector = new Vector2(-1.0f, -1.0f);
 
         _timeUntilStackRemoved = _timeToRemoveStack;
+
+        _animator = GetComponent<Animator>();
+        _attacking = false;
+        _facingLeft = true;
 
     }
 
@@ -43,6 +47,7 @@ public class AttackerController : MonoBehaviour
     void Update()
     {
         UpdateLookVector();
+        UpdateFacingDirect();
 
         // Attack
         if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
@@ -79,6 +84,11 @@ public class AttackerController : MonoBehaviour
     void UpdateLookVector()
     {
         _lookVector = Common.GetScaledVectorInput(1, "Left Horizontal", "Left Vertical");
+    }
+
+    void UpdateFacingDirect()
+    {
+        _animator.SetBool("FacingLeft", _lookVector.x <= 0);
     }
 
     void BasicAtack()
