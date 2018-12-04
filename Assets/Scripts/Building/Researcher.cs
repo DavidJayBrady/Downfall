@@ -15,6 +15,7 @@ public class Researcher : MonoBehaviour
 
     //likewise, progressAmount can be increased when research center is updated.. up to designer which gets changed, same effect tho
     public float progressAmount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +29,8 @@ public class Researcher : MonoBehaviour
         timer += Time.deltaTime;
 
         if(timer >= progressDelay){
-            //World.Instance.matchManager.AddResearch(progressAmount);
-            matchManager.AddResearch(progressAmount);
+            World.Instance.matchManager.AddResearch(progressAmount);
+            //matchManager.AddResearch(progressAmount);
             //Debug.Log("Adding Research Progress: " + progressAmount);
 
             timer = 0.0f;

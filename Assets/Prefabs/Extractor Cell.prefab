@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1000
-  buildingType: 3
+  upgradeLevel: 1
+  buildCost: 1
 --- !u!114 &892396314677699934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5246d4120943d2c4e87e6c5f5457bac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldAmount: 10
+  delay: 2
+  buildCost: 50
 --- !u!1 &6539244295317079160
 GameObject:
   m_ObjectHideFlags: 0

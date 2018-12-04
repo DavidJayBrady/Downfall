@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Interfaces;
 
-public class Building : MonoBehaviour
+// Inherits from MonoBehaviour, Imlements CanFeelThePain
+// INTERFACES MUST COME AFTER THE CLASS BEING INHERITED FROM
+// Source: https://stackoverflow.com/questions/14139097/c-sharp-inheritance-implements-extends
+public class Building : MonoBehaviour, Interfaces.CanFeelThePain
 {
     private int _health;
     public int maxHealth = 200;
     public int upgradeLevel = 1;
 
     public int buildCost = 1;
+
+    public int specificBuildCost;
 
     public enum BuildingType { None, Wall, Tower, Extractor, Research }
     public static BuildingType buildingType = BuildingType.None;

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Building))]
 public class Wall : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Start is called before the first frame update\
     void Start()
     {
         

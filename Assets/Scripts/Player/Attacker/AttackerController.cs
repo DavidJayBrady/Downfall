@@ -18,16 +18,24 @@ public class AttackerController : MonoBehaviour
 
     static private float _timeToRemoveStack = 5;
 
+    private Animator _animator;
+
+    private bool _facingLeft;
+
     // Start is called before the first frame update
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
         _basickAttack = GetComponent<BasicAttack>();
-        _attackCoolDown = 0f;
-        _attacking = false;
+        _attackCoolDown = 1.0f;
         _lookVector = new Vector2(-1.0f, -1.0f);
 
         _timeUntilStackRemoved = _timeToRemoveStack;
+
+        _animator = GetComponent<Animator>();
+        _attacking = false;
+        _facingLeft = true;
+
     }
 
     void Awake()
@@ -39,11 +47,13 @@ public class AttackerController : MonoBehaviour
     void Update()
     {
         UpdateLookVector();
+        UpdateFacingDirect();
 
         // Attack
         if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
         {
             _attacking = true;
+            _animator.SetBool("IsAttacking", _attacking);
             if (_attackCoolDown <= 0)
             {
                 BasicAtack();
@@ -52,6 +62,7 @@ public class AttackerController : MonoBehaviour
         else
         {
             _attacking = false;
+            _animator.SetBool("IsAttacking", _attacking);
         }
 
         // Restore attacker movement over time
@@ -59,7 +70,6 @@ public class AttackerController : MonoBehaviour
         {
             _slowTowerStacks -= 1;
             _timeUntilStackRemoved = _timeToRemoveStack;
-            Debug.Log(_slowTowerStacks + " took a stack away!"    );
         }
 
 
@@ -76,17 +86,22 @@ public class AttackerController : MonoBehaviour
         _lookVector = Common.GetScaledVectorInput(1, "Left Horizontal", "Left Vertical");
     }
 
+    void UpdateFacingDirect()
+    {
+        _animator.SetBool("FacingLeft", _lookVector.x <= 0);
+    }
+
     void BasicAtack()
     {
         _basickAttack.Attack(_lookVector);
-        _attackCoolDown = .5f;
+        _attackCoolDown = 1.0f;
     }
 
     public void TowerHit(int level)
     {
         _timeUntilStackRemoved = _timeToRemoveStack;
-        Debug.Log("tower hit");
-        _slowTowerStacks += 1;
+        if (_slowTowerStacks < 15)
+            _slowTowerStacks += 1;
 
     }
 
@@ -94,9 +109,8 @@ public class AttackerController : MonoBehaviour
     {
         if (!_attacking)
         {
-            _playerController.speed = _playerController.baseSpeed * Mathf.Pow(.9f, _slowTowerStacks);
+            _playerController.speed = Mathf.Max((_playerController.baseSpeed * Mathf.Pow(.9f, _slowTowerStacks)), 1);
             Debug.Log(_playerController.speed);
-            //_playerController.speed = _playerController.baseSpeed;
         }
         else
         {

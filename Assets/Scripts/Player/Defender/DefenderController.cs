@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+using Interfaces;
+
 [RequireComponent(typeof(PlayerController))]
-public class DefenderController : MonoBehaviour
+public class DefenderController : MonoBehaviour, Interfaces.CanFeelThePain
 {
     private PlayerController playerController;
     public GameObject underfootHighlighter;
@@ -17,6 +19,8 @@ public class DefenderController : MonoBehaviour
     public Building extractorBuilding;
     public Building researchBuilding;
 
+
+    public float health = 100;
 
     // Use this for initialization
     void Start()
@@ -30,6 +34,15 @@ public class DefenderController : MonoBehaviour
         UpdatePlayerLook();
         UpdateBuildingChoice();
         CheckPlayerBuilding();
+        DieIfDead();
+    }
+
+    void DieIfDead()
+    {
+        if (health < 0)
+        {
+            Debug.Log("HIATT CODE THIS");
+        }
     }
 
     // Returns true when the player has a building selected and camera mode is off
@@ -105,8 +118,14 @@ public class DefenderController : MonoBehaviour
         {
             if (Common.GetControllerInputAxis(playerController.controllerID, "A Button") > 0.5f)
             {
-                World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
+                    World.Instance.buildingManager.BuildAt(GetPlayerSelection(), selectedBuilding);
             }
         }
+    }
+
+    public void Damage(int amount)
+    {
+        health -= amount;
+        Debug.Log("defender health: " + health);
     }
 }

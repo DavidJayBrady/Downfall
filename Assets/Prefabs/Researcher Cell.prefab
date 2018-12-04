@@ -179,6 +179,7 @@ MonoBehaviour:
   maxHealth: 1000
   upgradeLevel: 1
   buildCost: 1
+  specificBuildCost: 0
 --- !u!114 &946378196169258510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,4 +196,4 @@ MonoBehaviour:
     type: 3}
   timer: 0
   progressDelay: 2
-  progressAmount: 5
+  progressAmount: 3.3

@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 8935396159940554184}
   - component: {fileID: 8935396159940554187}
   - component: {fileID: 8935396159940554185}
+  - component: {fileID: 5987623650239976738}
   m_Layer: 10
   m_Name: Wall Cell
   m_TagString: Untagged
@@ -146,7 +147,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,3 +179,16 @@ MonoBehaviour:
   maxHealth: 100
   upgradeLevel: 1
   buildCost: 1
+--- !u!114 &5987623650239976738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8935396159940554186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec03265ad1a1c7489779dd3c0f77c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildCost: 10
