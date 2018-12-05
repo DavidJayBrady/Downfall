@@ -224,6 +224,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2192392291343049797, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8d651fdefc2dfc4a96e5e4789b59dff,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
 --- !u!1001 &708117538
@@ -293,57 +299,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attacker
       objectReference: {fileID: 0}
-    - target: {fileID: 1474692090511425912, guid: 88decde9a69b15b4289529f2e240a11f,
+    - target: {fileID: 6113691968491111344, guid: 88decde9a69b15b4289529f2e240a11f,
         type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474692090511425912, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474692090511425912, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474692090511425912, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7562552959325936378, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: SetAttackerHealth
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047351566284431002, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: layerMaskOption.m_Bits
-      value: 5632
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067634033, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3ac924a20cabd9a4d9259be851a0dc23, type: 2}
-    - target: {fileID: 8205229031998819946, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8205229031998819946, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 8205229031998819946, guid: 88decde9a69b15b4289529f2e240a11f,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3947089100679659587, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88decde9a69b15b4289529f2e240a11f, type: 3}
 --- !u!1 &1632605249 stripped
 GameObject:
@@ -351,70 +312,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 708117538}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &1632605250
-CircleCollider2D:
+--- !u!95 &1632605252
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632605249}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
---- !u!212 &1632605251
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632605249}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.43, y: 0.93}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ac924a20cabd9a4d9259be851a0dc23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1752955348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,6 +438,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2192392291343049797, guid: 9b2f2eb8ab774b946b8e5183afb639a3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 654352b561e01f342ab7eeadf514b6f2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2f2eb8ab774b946b8e5183afb639a3, type: 3}
 --- !u!1 &1510321646990866054
@@ -698,12 +620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fa7273dd7a6074595734b380f31f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_Name: 
-  defenders: []
-  defenderResources: 0
-  matchTimeStart: 0
-  matchTime: 0
 --- !u!4 &6625611607319485552
 Transform:
   m_ObjectHideFlags: 0
