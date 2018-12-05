@@ -48,12 +48,13 @@ public class AttackerController : MonoBehaviour
     {
         UpdateLookVector();
         UpdateFacingDirect();
+		//UpdateIsMoving();
 
         // Attack
         if (Common.GetControllerInputAxis(1, "Right Trigger") > .5f)
         {
             _attacking = true;
-            _animator.SetBool("IsAttacking", _attacking);
+            _animator.SetBool("attacking", _attacking);
             if (_attackCoolDown <= 0)
             {
                 BasicAtack();
@@ -62,7 +63,7 @@ public class AttackerController : MonoBehaviour
         else
         {
             _attacking = false;
-            _animator.SetBool("IsAttacking", _attacking);
+            _animator.SetBool("attacking", _attacking);
         }
 
         // Restore attacker movement over time
@@ -83,14 +84,21 @@ public class AttackerController : MonoBehaviour
 
     void UpdateLookVector()
     {
-        _lookVector = Common.GetScaledVectorInput(1, "Left Horizontal", "Left Vertical");
+		if (Common.GetScaledVectorInput(1, "Left Horizontal", "Left Vertical").magnitude > .3f)
+			_lookVector = Common.GetScaledVectorInput(1, "Left Horizontal", "Left Vertical");
     }
 
     void UpdateFacingDirect()
     {
-        _animator.SetBool("FacingLeft", _lookVector.x <= 0);
+        _animator.SetBool("facingLeft", _lookVector.x <= 0);
     }
 
+	void UpdateIsMoving()
+	{
+		// 1 is minimum speed. Any value between .000001 and .9999 would be fine
+		_animator.SetBool("moving", _playerController.speed > .9);
+	}
+	
     void BasicAtack()
     {
         _basickAttack.Attack(_lookVector);
